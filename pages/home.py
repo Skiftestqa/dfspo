@@ -1,9 +1,9 @@
 from base import BasePage
 from base import IncorrectPageException
 
-class LandingPage(BasePage):
+class HomePage(BasePage):
 
-    _landing_page_navigation_container_locator
+    _landing_page_body_id = "homepage"
 
     def __init__(self, driver):
         super(LandingPage, self).__init__(driver)

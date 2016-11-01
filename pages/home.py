@@ -16,14 +16,12 @@ class HomePage(BasePage):
         except:
             raise IncorrectPageException
 
-    def join(self):
+    def click_join_button(self):
     	self.click(10, "css", _join_button)
-    	from pages.join import JoinPage
+    	from join import JoinPage
     	return JoinPage(self.driver)
 
-    def login(self):
+    def click_login_button(self):
     	self.click(10, "css", _login_button)
-    	from pages.login import LoginPage
-    	return LoginPage(self.driver)	
-
-
+    	from login import LoginPage
+    	return LoginPage(self.driver)

@@ -3,7 +3,7 @@ from selenium import webdriver
 
 import unittest
 
-from DfsPO.Constants import DFS_Constants
+from dfspo.Constants import DFS_Constants
 
 class BaseTestCase(unittest.TestCase):
 

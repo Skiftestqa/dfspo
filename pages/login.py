@@ -26,5 +26,4 @@ class LoginPage(BasePage):
 		return LobbyPage(self.driver)
 
 	def login_as_invalid_user(self):
-			
-
+		pass

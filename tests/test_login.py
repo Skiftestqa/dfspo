@@ -3,9 +3,14 @@ from dfspo.Constants import DFS_Constants
 from dfspo.pages.login import LoginPage
 import unittest
 
-class LoginTest(BaseTestCase):
+class TestLogin(BaseTestCase):
 
 	def setUp(self):
-		super(LoginTest,self).setUp()
+		super(TestLogin,self).setUp()
+		self.navigate_to_page(DFS_Constants['Base_URL'] + "p/login#login")
 
-		
+	def test_login_valid_credentials_successfull(self):
+		login_page_obj = LoginPage(self.driver, 
+									DFS_Constants['Useername'], 
+									DFS_Constants['Password']
+		)

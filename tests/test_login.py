@@ -14,3 +14,4 @@ class TestLogin(BaseTestCase):
 									DFS_Constants['Username'], 
 									DFS_Constants['Password']
 		)
+		login_page_obj.login_as_valid_user()

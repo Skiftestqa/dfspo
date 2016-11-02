@@ -13,5 +13,3 @@ class LobbyPage(BasePage):
 			self.wait_for_element_visibility(10, "css", _create_contest_button)
 		except:
 			raise IncorrectPageException
-			
-

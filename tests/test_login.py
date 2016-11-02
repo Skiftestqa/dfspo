@@ -9,7 +9,7 @@ class TestLogin(BaseTestCase):
 		super(TestLogin,self).setUp()
 		self.navigate_to_page(DFS_Constants['Base_URL'] + "p/login#login")
 
-	def test_login_valid_credentials_successfull(self):
+	def test_user_can_login_with_valid_credentials(self):
 		login_page_obj = LoginPage(self.driver, 
 									DFS_Constants['Username'], 
 									DFS_Constants['Password']

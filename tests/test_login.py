@@ -11,6 +11,6 @@ class TestLogin(BaseTestCase):
 
 	def test_login_valid_credentials_successfull(self):
 		login_page_obj = LoginPage(self.driver, 
-									DFS_Constants['Useername'], 
+									DFS_Constants['Username'], 
 									DFS_Constants['Password']
 		)

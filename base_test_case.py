@@ -1,12 +1,11 @@
-
 from selenium import webdriver
 
 import unittest
 
 from dfspo.Constants import DFS_Constants
 
-class BaseTestCase(unittest.TestCase):
 
+class BaseTestCase(unittest.TestCase):
     def setUp(self):
         if DFS_Constants['Browser'].lower() == "firefox":
             self.driver = webdriver.Firefox()

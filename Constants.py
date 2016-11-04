@@ -5,6 +5,7 @@ DFS_Constants = dict(Browser="firefox",
 
                      )
 
+
 class LocatorMode:
     ID = "id"
     NAME = "name"

@@ -7,10 +7,8 @@ class LoginPage(BasePage):
     _password_id_locator = "password"
     _login_button_name_locator = "login"
 
-    def __init__(self, driver, username, password):
+    def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
-        self.username = username
-        self.password = password
 
     def _verify_page(self):
         try:
@@ -18,9 +16,9 @@ class LoginPage(BasePage):
         except:
             raise IncorrectPageException
 
-    def login_as_valid_user(self):
-        self.fill_out_field("id", self._email_id_locator, self.username)
-        self.fill_out_field("id", self._password_id_locator, self.password)
+    def login_as_valid_user(self, username, password):
+        self.fill_out_field("id", self._email_id_locator, username)
+        self.fill_out_field("id", self._password_id_locator, password)
         self.click(10, "name", self._login_button_name_locator)
         from lobby import LobbyPage
         return LobbyPage(self.driver)

@@ -1,4 +1,4 @@
-DFS_Constants = dict(Browser="firefox",
+dfs_constants = dict(Browser="firefox",
                      Base_URL="https://www.fanduel.com/",
                      Username="Skifsunset@yahoo.com",
                      Password="testcase123"

@@ -8,7 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from abc import abstractmethod
-from dfspo.constants import LocatorMode
+from constants import LocatorMode
 
 
 class BasePage(object):

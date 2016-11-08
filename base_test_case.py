@@ -2,18 +2,18 @@ from selenium import webdriver
 
 import unittest
 
-from Constants import DFS_Constants
+from constants import dfs_constants
 
 
 class BaseTestCase(unittest.TestCase):
     def setUp(self):
-        if DFS_Constants['Browser'].lower() == "firefox":
+        if dfs_constants['Browser'].lower() == "firefox":
             self.driver = webdriver.Firefox()
             self.driver.maximize_window()
-        elif DFS_Constants['Browser'].lower() == "chrome":
+        elif dfs_constants['Browser'].lower() == "chrome":
             self.driver = webdriver.Chrome()
             self.driver.maximize_window()
-        elif DFS_Constants['Browser'].lower() == "ie":
+        elif dfs_constants['Browser'].lower() == "ie":
             self.driver = webdriver.Ie()
             self.driver.maximize_window()
         else:

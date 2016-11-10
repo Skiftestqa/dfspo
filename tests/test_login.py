@@ -15,5 +15,6 @@ class TestLogin(BaseTestCase):
         login_page_obj.login_as_valid_user(dfs_constants['Username'],
                                            dfs_constants['Password'])
 
+
 if __name__ == '__main__':
-       unittest.main(verbosity=2)
+    unittest.main(verbosity=2)

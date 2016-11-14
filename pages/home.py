@@ -1,5 +1,6 @@
 from base import BasePage
 from base import IncorrectPageException
+from dfspo.tests import config
 
 
 class HomePage(BasePage):
@@ -9,7 +10,9 @@ class HomePage(BasePage):
     _login_button_locator = ".global-header-container .login-menu-block > a"
 
     def __init__(self, driver):
-        super(HomePage, self).__init__(driver)
+        self.driver = driver
+        self.navigate_to_page(config.baseurl)
+        self._verify_page()
 
     def _verify_page(self):
         try:

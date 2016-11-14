@@ -8,7 +8,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from abc import abstractmethod
-from constants import LocatorMode
+from dfspo.constants import LocatorMode
+from tests import config
 
 
 class BasePage(object):
@@ -45,6 +46,12 @@ class BasePage(object):
 
         from nav_menu import NavMenu
         return NavMenu(self.driver)
+
+    def navigate_to_page(self, url):
+        if url.startswith("http"):
+            self.driver.get(url)
+        else:
+            self.driver.get(config.baseurl + url)
 
     def wait_for_element_visibility(self, wait_time, locator_mode, locator):
         """Returns element after it becomes visible"""

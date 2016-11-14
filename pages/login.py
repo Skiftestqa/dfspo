@@ -1,7 +1,6 @@
 from base import BasePage
 from base import IncorrectPageException
 
-
 class LoginPage(BasePage):
     _email_id_locator = "email"
     _password_id_locator = "password"

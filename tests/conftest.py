@@ -1,13 +1,13 @@
 import pytest
 from selenium import webdriver
-from dfspo.constants import dfs_constants
-from dfspo.tests import config
+from constants import dfs_constants
+from tests import config
 
 
 def pytest_addoption(parser):
     parser.addoption("--baseurl",
                      action="store",
-                     default="https://www.fanduel.com/",
+                     default="https://www.fanduel.com",
                      help="base usrl for application under test")
 
 

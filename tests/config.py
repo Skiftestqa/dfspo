@@ -2,3 +2,8 @@
 
 baseurl = ""
 browser = ""
+
+"""Sauce lab test environment variables"""
+host = ""
+browserversion = ""
+platform = ""

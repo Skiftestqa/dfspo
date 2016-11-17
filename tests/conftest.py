@@ -77,16 +77,21 @@ def driver(request):
             driver_ = webdriver.Firefox()
             driver_.maximize_window()
         elif config.browser == "chrome": # create webdriver instance of Chrome
-            if platform.system() == "Darwin":  # select proper path to chromedriver based on OS
+            if platform.system() == "Darwin":  # locate chromedriver if test run on OS X
                 chromedriver = os.getcwd() + "/../vendor/chromedriver"
-            elif platform.system() == "Windows":
+            elif platform.system() == "Windows": # locate chromedriver if test run on Windows
                 chromedriver = os.getcwd() + "/../vendor/chromedriver.exe"
             options = Options()
             options.add_argument("--start-maximized") # start chrome window maximized
             driver_ = webdriver.Chrome(chromedriver, chrome_options=options)
-        elif config.browser == "ie": # create webdriver instance of Internet Explorer
-            driver_ = webdriver.Ie()
+        elif config.browser == "ie32": # create webdriver instance of Internet Explorer
+            iedriver = os.getcwd() + "/../vendor/IEDriverServer32.exe"
+            driver_ = webdriver.Ie(iedriver)
             driver_.maximize_window()
+        elif config.browser == "ie64":
+        	iedriver = os.getcwd() + "/../vendor/IEDriverServer64.exe"  
+        	driver_ = webdriver.Ie(iedriver)
+        	driver_.maximize_window()  
         else:
             raise Exception("This browser is not supported at the moment")
 

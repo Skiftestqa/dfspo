@@ -8,7 +8,7 @@ arguments using helper method pytest_addoption(parser).
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from tests import config
+from dfspo.tests import config
 import os
 import platform
 
@@ -58,7 +58,7 @@ def pytest_runtest_makereport(item, call):
     setattr(item, "result_" + result.when, result)
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def driver(request):
     """Return Webdriver instance
 
@@ -103,6 +103,9 @@ def driver(request):
         elif config.browser == "ie64":
             iedriver = os.getcwd() + "/../vendor/IEDriverServer64.exe"
             driver_ = webdriver.Ie(iedriver)
+            driver_.maximize_window()
+        elif config.browser == "safari":
+            driver_ = webdriver.Safari(quiet=True)
             driver_.maximize_window()
         else:
             raise Exception("This browser is not supported at the moment")

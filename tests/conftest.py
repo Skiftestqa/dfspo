@@ -58,7 +58,7 @@ def pytest_runtest_makereport(item, call):
     setattr(item, "result_" + result.when, result)
 
 
-@pytest.fixture(scope="session")
+@pytest.fixture()
 def driver(request):
     """Return Webdriver instance
 

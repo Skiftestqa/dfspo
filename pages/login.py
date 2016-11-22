@@ -24,10 +24,9 @@ class LoginPage(BasePage):
         return LobbyPage(self.driver)
 
     def login_as_invalid_user(self):
-        self.fill_out_field("id", self._email_id_locator, "bad@.com")
-        self.fill_out_field("id", self._email_id_locator, "badpassword")
+        self.fill_out_field("id", self._email_id_locator, "bad@email.com")
+        self.fill_out_field("id", self._password_id_locator, "badpassword")
         self.click(10, "name", self._login_button_name_locator)
 
-    @property
     def login_failure_message_is_present(self):
         return self.wait_for_element_visibility(10, "id", self._failure_login_locator)

@@ -5,7 +5,7 @@ from dfspo.pages.home import HomePage
 
 class TestLogin():
 
-    @pytest.fixture
+    @pytest.fixture()
     def home_page_obj(self, driver):
         return HomePage(driver)
 
@@ -17,4 +17,4 @@ class TestLogin():
     def test_user_cannot_login_with_invalid_credentials(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_as_invalid_user()
-        assert login_page_obj.login_failure_message_is_present() == True
+        assert login_page_obj.login_failure_message_is_present()

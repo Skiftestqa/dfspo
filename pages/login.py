@@ -1,11 +1,14 @@
 from base import BasePage
 from base import IncorrectPageException
+import time
 
 class LoginPage(BasePage):
     _email_id_locator = "email"
     _password_id_locator = "password"
     _login_button_name_locator = "login"
-    _failure_login_locator = "ccf1.email.e"
+    _failure_login_id_locator = "ccf1.email.e"
+    _warning_popup_locator = "div.warning"
+    _too_many_attempts_failure_message_locator = "div.warning:contains('Too many failed attempts.')"
 
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
@@ -29,4 +32,18 @@ class LoginPage(BasePage):
         self.click(10, "name", self._login_button_name_locator)
 
     def login_failure_message_is_present(self):
-        return self.wait_for_element_visibility(10, "id", self._failure_login_locator)
+        self.wait_for_element_visibility(10, "id", self._failure_login_id_locator)
+        return self.find_element("id", self._failure_login_id_locator).is_displayed()
+
+    def login_two_attempts_in_two_seconds(self):
+        for i in range(2):
+            self.fill_out_field("id", self._email_id_locator, "bad@email.com")
+            self.fill_out_field("id", self._password_id_locator, "badpassword123")
+            self.click(10, "name", self._login_button_name_locator)
+            time.sleep(1)
+
+    def login_too_many_attempts_message_present(self):
+        self.wait_for_element_visibility(10, "css", self._warning_popup_locator)
+        return self.find_element("css", self._warning_popup_locator).is_displayed()
+
+

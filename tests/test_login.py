@@ -17,4 +17,9 @@ class TestLogin():
     def test_user_cannot_login_with_invalid_credentials(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_as_invalid_user()
-        assert login_page_obj.login_failure_message_is_present()
+        assert login_page_obj.login_failure_message_is_present() == True
+
+    def test_too_many_failed_attempts_warning(self, home_page_obj):
+        login_page_obj = home_page_obj.click_login_button()
+        login_page_obj.login_two_attempts_in_two_seconds()
+        assert login_page_obj.login_too_many_attempts_message_present() == True

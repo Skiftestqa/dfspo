@@ -9,6 +9,8 @@ class LoginPage(BasePage):
     _failure_login_id_locator = "ccf1.email.e"
     _warning_popup_locator = "div.warning"
     _too_many_attempts_failure_message_locator = "div.warning:contains('Too many failed attempts.')"
+    _invalid_email_and_password_locator = "ccf1.email.e"
+    _please_enter_password_prompt_locator = "ccf1.password.e"
 
     def __init__(self, driver):
         super(LoginPage, self).__init__(driver)
@@ -47,5 +49,15 @@ class LoginPage(BasePage):
         alert_text = alert.text
         return alert_text == " Too many failed attempts. Please wait 1 minute before trying again."
 
+
+    def login_with_invalid_email_and_no_password(self):
+        self.fill_out_field("id", self._email_id_locator, "bad@email.com")
+        self.click(10, "name", self._login_button_name_locator)
+
+    def login_invalid_email_and_password_prompt_present(self):
+        return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
+
+    def login_enter_password_prompt_present(self):
+        return self.find_element("id", self._please_enter_password_prompt_locator).is_displayed()
 
 

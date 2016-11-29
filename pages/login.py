@@ -49,7 +49,6 @@ class LoginPage(BasePage):
         alert_text = alert.text
         return alert_text == " Too many failed attempts. Please wait 1 minute before trying again."
 
-
     def login_with_invalid_email_and_no_password(self):
         self.fill_out_field("id", self._email_id_locator, "bad@email.com")
         self.click(10, "name", self._login_button_name_locator)

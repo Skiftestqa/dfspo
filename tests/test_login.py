@@ -19,7 +19,7 @@ class TestLogin():
         login_page_obj.login_as_invalid_user()
         assert login_page_obj.login_failure_message_is_present() == True
 
-    def test_too_many_failed_attempts_warning(self, home_page_obj):
+    def test_alert_message_present(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_two_attempts_in_two_seconds()
-        assert login_page_obj.login_too_many_attempts_message_present() == True
+        login_page_obj.login_try_again_in_one_minute_message_present() == True

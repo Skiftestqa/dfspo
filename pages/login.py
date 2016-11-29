@@ -42,8 +42,10 @@ class LoginPage(BasePage):
             self.click(10, "name", self._login_button_name_locator)
             time.sleep(1)
 
-    def login_too_many_attempts_message_present(self):
-        self.wait_for_element_visibility(10, "css", self._warning_popup_locator)
-        return self.find_element("css", self._warning_popup_locator).is_displayed()
+    def login_try_again_in_one_minute_message_present(self):
+        alert = self.wait_for_element_visibility(10, "css", self._warning_popup_locator)
+        alert_text = alert.text
+        return alert_text == " Too many failed attempts. Please wait 1 minute before trying again."
+
 
 

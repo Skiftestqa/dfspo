@@ -33,4 +33,4 @@ class TestLogin():
     	login_page_obj = home_page_obj.click_login_button()
     	login_page_obj.login_with_invalid_email_and_no_password()
     	assert login_page_obj.login_enter_password_prompt_present() == True
-    	
+

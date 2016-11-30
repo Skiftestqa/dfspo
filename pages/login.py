@@ -58,6 +58,7 @@ class LoginPage(BasePage):
         self.click(10, "name", self._login_button_name_locator)
 
     def login_invalid_email_and_password_prompt_present(self):
+        self.wait_for_element_visibility(10, "id", self._invalid_email_and_password_locator)
         return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
 
     def login_enter_password_prompt_present(self):

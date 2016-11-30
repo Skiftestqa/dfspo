@@ -2,6 +2,7 @@ from base import BasePage
 from base import IncorrectPageException
 import time
 
+
 class LoginPage(BasePage):
     _email_id_locator = "email"
     _password_id_locator = "password"

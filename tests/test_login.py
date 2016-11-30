@@ -28,7 +28,7 @@ class TestLogin():
         assert login_page_obj.login_try_again_in_one_minute_message_present() == True
 
     @pytest.mark.deep
-    def test_invalid_email_and_password_prompt(self, home_page_obj):
+    def test_invalid_email_and_password_prompt_present(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_with_invalid_email_and_no_password()
         assert login_page_obj.login_invalid_email_and_password_prompt_present() == True

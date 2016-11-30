@@ -62,6 +62,7 @@ class LoginPage(BasePage):
         return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
 
     def login_enter_password_prompt_present(self):
+        self.wait_for_element_visibility(10, "id", self._please_enter_password_prompt_locator)
         return self.find_element("id", self._please_enter_password_prompt_locator).is_displayed()
 
 

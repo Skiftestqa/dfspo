@@ -1,6 +1,7 @@
+import time
+
 from base import BasePage
 from base import IncorrectPageException
-import time
 
 
 class LoginPage(BasePage):
@@ -34,9 +35,9 @@ class LoginPage(BasePage):
         self.fill_out_field("id", self._password_id_locator, "badpassword")
         self.click(10, "name", self._login_button_name_locator)
 
-    def login_failure_message_is_present(self):
-        self.wait_for_element_visibility(10, "id", self._failure_login_id_locator)
-        return self.find_element("id", self._failure_login_id_locator).is_displayed()
+    def login_invalid_email_and_password_prompt_present(self):
+        self.wait_for_element_visibility(10, "id", self._invalid_email_and_password_locator)
+        return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
 
     def login_two_attempts_in_two_seconds(self):
         for i in range(2):
@@ -57,12 +58,6 @@ class LoginPage(BasePage):
         self.fill_out_field("id", self._email_id_locator, "bad@email.com")
         self.click(10, "name", self._login_button_name_locator)
 
-    def login_invalid_email_and_password_prompt_present(self):
-        self.wait_for_element_visibility(10, "id", self._invalid_email_and_password_locator)
-        return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
-
     def login_enter_password_prompt_present(self):
         self.wait_for_element_visibility(10, "id", self._please_enter_password_prompt_locator)
         return self.find_element("id", self._please_enter_password_prompt_locator).is_displayed()
-
-

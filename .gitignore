@@ -6,6 +6,10 @@ __pycache__/
 #pycharm files
 .idea/workspace.xml
 
+#reporting files
+tests/assets/
+tests/report.html
+
 # C extensions
 *.so
 

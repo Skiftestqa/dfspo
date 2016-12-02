@@ -9,12 +9,13 @@ class TestLogin():
     def home_page_obj(self, driver):
         return HomePage(driver)
 
+    @pytest.mark.tryfirst
     @pytest.mark.shallow
     def test_user_can_login_with_valid_credentials(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_as_valid_user(dfs_constants['Username'],
                                            dfs_constants['Password'])
-
+    @pytest.mark.tryfirst
     @pytest.mark.deep
     def test_user_cannot_login_with_invalid_credentials(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()

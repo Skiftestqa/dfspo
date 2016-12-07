@@ -119,6 +119,11 @@ def driver(request):
         elif config.browser == "safari":
             driver_ = webdriver.Safari(quiet=True)
             driver_.maximize_window()
+        elif config.browser == "edge":
+            # driver for Edge version 13.10586
+            edgedriver = os.getcwd() + "/../vendor/EdgeDriver64.exe"
+            driver_ = webdriver.Edge(edgedriver)
+            driver_.maximize_window()    
         else:
             raise Exception("This browser is not supported at the moment")
 

@@ -29,7 +29,7 @@ def pytest_addoption(parser):
                      help="base usrl for application under test")
     parser.addoption("--browser",
                      action="store",
-                     default="internet explorer",
+                     default="chrome",
                      help="the name of the browser you want to test with")
     parser.addoption("--host",
                      action="store",
@@ -37,11 +37,11 @@ def pytest_addoption(parser):
                      help="where to run tests localhost ot saucelabs")
     parser.addoption("--browserversion",
                      action="store",
-                     default="10.0",
+                     default="54",
                      help="the browser version you want to test with")
     parser.addoption("--platform",
                      action="store",
-                     default="Windows 7",
+                     default="Darwin",
                      help="the operating system to run your tests on(saucelabs only)")
 
 

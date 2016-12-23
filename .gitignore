@@ -4,11 +4,12 @@ __pycache__/
 *$py.class
 
 #pycharm files
-.idea/workspace.xml
+.idea/
 
 #reporting files
 tests/assets/
 tests/report.html
+reports/
 
 # C extensions
 *.so

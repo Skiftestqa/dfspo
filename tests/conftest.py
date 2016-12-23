@@ -8,7 +8,7 @@ arguments using helper method pytest_addoption(parser).
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-from dfspo.tests import config
+from ..tests import config
 import os
 import platform
 
@@ -33,7 +33,7 @@ def pytest_addoption(parser):
                      help="the name of the browser you want to test with")
     parser.addoption("--host",
                      action="store",
-                     default="saucelabs",
+                     default="localhost",
                      help="where to run tests localhost ot saucelabs")
     parser.addoption("--browserversion",
                      action="store",

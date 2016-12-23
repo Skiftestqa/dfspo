@@ -1,7 +1,7 @@
 import pytest
 
-from dfspo.constants import dfs_constants
-from dfspo.pages.home import HomePage
+from ..constants import dfs_constants
+from ..pages.home import HomePage
 
 
 class TestLogin():

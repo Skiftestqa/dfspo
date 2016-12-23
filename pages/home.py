@@ -1,6 +1,6 @@
 from base import BasePage
 from base import IncorrectPageException
-from dfspo.tests import config
+from ..tests import config
 
 
 class HomePage(BasePage):

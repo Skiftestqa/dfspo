@@ -102,9 +102,13 @@ def driver(request):
             driver_.maximize_window()
         elif config.browser == "chrome":  # create webdriver instance of Chrome
             if platform.system() == "Darwin":  # locate chromedriver if test run on OS X
-                chromedriver = os.getcwd() + "/../vendor/chromedriver"
+                chromedriver = os.path.abspath(
+                    os.path.join(os.path.dirname(__file__), "./../vendor/chromedriver")
+                )
             elif platform.system() == "Windows":  # locate chromedriver if test run on Windows
-                chromedriver = os.getcwd() + "/../vendor/chromedriver.exe"
+                chromedriver = os.path.abspath(
+                    os.path.join(os.path.dirname(__file__), "./../vendor/chromedriver.exe")
+                )
             options = Options()
             options.add_argument("--start-maximized")  # start chrome window maximized
             driver_ = webdriver.Chrome(chromedriver, chrome_options=options)

@@ -1,7 +1,12 @@
 apipkg==1.4
+enum34==1.1.6
 execnet==1.4.1
+lxml==3.7.1
+namedlist==1.7
 py==1.4.31
-pytest==3.0.5
+pytest==2.9.0
+pytest-allure-adaptor==1.7.6
 pytest-randomly==1.1.2
 pytest-xdist==1.15.0
 selenium==3.0.2
+six==1.10.0

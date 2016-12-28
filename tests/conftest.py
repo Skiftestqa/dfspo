@@ -58,17 +58,6 @@ def pytest_runtest_makereport(item, call):
     result = outcome.get_result()
     # pass result of test to saucelab
     setattr(item, "result_" + result.when, result)
-    # for pytest-html report extras
-    extra = getattr(result, 'extra', [])
-    if result.when == 'call':
-        # always add url to report
-        extra.append(pytest_html.extras.url('http://www.example.com/'))
-        xfail = hasattr(result, 'wasxfail')
-        if (result.skipped and xfail) or (result.failed and not xfail):
-            # only add additional html on failure
-            extra.append(pytest_html.extras.html('<div>Additional HTML</div>'))
-        result.extra = extra
-
 
 @pytest.fixture()
 def driver(request):

@@ -98,6 +98,10 @@ def driver(request):
                 chromedriver = os.path.abspath(
                     os.path.join(os.path.dirname(__file__), "./../vendor/chromedriver.exe")
                 )
+            elif platform.system() == "Linux": # locate chomedriver path if test run on Ubuntu
+                chromedriver = os.path.abspath(
+                    os.path.join(os.path.dirname(__file__), "./../vendor/chromedriver_linux64")
+                )
             options = Options()
             options.add_argument("--start-maximized")  # start chrome window maximized
             driver_ = webdriver.Chrome(chromedriver, chrome_options=options)

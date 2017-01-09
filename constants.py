@@ -1,5 +1,4 @@
-dfs_constants = dict(Base_URL="https://www.fanduel.com/",
-                     Username="Skifsunset@yahoo.com",
+dfs_constants = dict(Username="Skifsunset@yahoo.com",
                      Password="testcase123"
                      )
 

@@ -1,5 +1,5 @@
 import pytest
-
+from time import sleep
 from ..constants import dfs_constants
 from ..pages.home import HomePage
 
@@ -15,14 +15,15 @@ class TestLogin():
         login_page_obj = home_page_obj.click_login_button()
         login_page_obj.login_as_valid_user(dfs_constants['Username'],
                                            dfs_constants['Password'])
-    @pytest.mark.tryfirst
+
+    @pytest.mark.trylast
     @pytest.mark.deep
     def test_user_cannot_login_with_invalid_credentials(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
+        sleep(60)  # sleep to prevent false negative (too many attempts message)
         login_page_obj.login_as_invalid_user()
         assert login_page_obj.login_invalid_email_and_password_prompt_present() == True
 
-    @pytest.mark.trylast
     @pytest.mark.deep
     def test_alert_message_present(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()

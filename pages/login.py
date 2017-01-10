@@ -39,7 +39,7 @@ class LoginPage(BasePage):
         self.wait_for_element_visibility(10, "id", self._invalid_email_and_password_locator)
         return self.find_element("id", self._invalid_email_and_password_locator).is_displayed()
 
-    def login_two_attempts_in_two_seconds(self):
+    def login_two_bad_attempts_in_two_seconds(self):
         for i in range(2):
             self.fill_out_field("id", self._email_id_locator, "bad@email.com")
             self.fill_out_field("id", self._password_id_locator, "badpassword123")

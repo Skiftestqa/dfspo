@@ -22,10 +22,11 @@ class TestLogin():
         login_page_obj.login_as_invalid_user()
         assert login_page_obj.login_invalid_email_and_password_prompt_present() == True
 
+    @pytest.mark.trylast
     @pytest.mark.deep
     def test_alert_message_present(self, home_page_obj):
         login_page_obj = home_page_obj.click_login_button()
-        login_page_obj.login_two_attempts_in_two_seconds()
+        login_page_obj.login_two_bad_attempts_in_two_seconds()
         assert login_page_obj.login_try_again_in_one_minute_message_present() == True
 
     @pytest.mark.deep

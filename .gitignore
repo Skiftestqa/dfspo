@@ -9,7 +9,7 @@ __pycache__/
 #reporting files
 tests/assets/
 tests/report.html
-reports/
+report[s]/
 
 # C extensions
 *.so
